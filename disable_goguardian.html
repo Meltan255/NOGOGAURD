@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Disable GoGuardian Extension</title>
+  <script>
+    function disableGoGuardianExtension() {
+      chrome.management.get('abcdefghijklmnp...', function(extensionInfo) {
+        if (extensionInfo) {
+          chrome.management.setEnabled(extensionInfo.id, false, function() {
+            console.log('GoGuardian Extension disabled.');
+          });
+        } else {
+          console.log('GoGuardian Extension not found.');
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <button onclick="disableGoGuardianExtension()">Disable GoGuardian Extension</button>
+</body>
+</html>
